@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+    kickstart_mongodb:
+        image: bitnami/mongodb:4.4.10
+        env_file:
+            - ../.env.local
+        ports:
+            - "27017:27017"
+        volumes:
+            - mongodb:/bitnami/mongodb
+
+volumes:
+    mongodb:
+        name: kickstart_mongodb

@@ -1,0 +1,46 @@
+{
+  "name": "kickstart",
+  "version": "0.1.0",
+  "description": "monorepo project template",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "schleuderbeton",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "common/*"
+    ]
+  },
+  "scripts": {
+    "version:bump": "yarn version check --interactive && yarn version apply --all",
+    "server": "yarn workspace @apps/server",
+    "client": "yarn workspace @apps/client",
+    "dto": "yarn workspace common-dto",
+    "build": "yarn workspaces foreach -tR --from '{@apps/server,@apps/client}' run build",
+    "clean:dist": "rimraf dist",
+    "start": "yarn workspaces foreach -pi --from '{@apps/server,@apps/client}' run start",
+    "start:dev": "yarn workspaces foreach -pi --from '{@apps/server,@apps/client}' run start:dev",
+    "start:debug": "yarn workspaces foreach -pi --from '{@apps/server,@apps/client}' run start:debug",
+    "start:dist": "cd dist && PATH_ENV_FILE=../.env.local && node apps/server/main",
+    "start:db": "docker compose -f docker/docker-compose.db.yml up -d",
+    "start:docker": "docker compose -f docker/docker-compose.local.yml up",
+    "test": "yarn workspaces foreach -tR --from '{@apps/server,@apps/client}' run test",
+    "format": "yarn lint && prettier --write '{apps,common,libs}/**/*.{ts,js,html,scss,json}'",
+    "lint": "eslint '{apps,common,libs}/**/*.{ts,js,tsx,vue}' --fix"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
+    "rimraf": "^3.0.2"
+  },
+  "packageManager": "yarn@3.0.2"
+}

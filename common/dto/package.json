@@ -1,0 +1,20 @@
+{
+  "name": "common-dto",
+  "version": "0.6.0",
+  "description": "",
+  "author": "",
+  "license": "",
+  "main": "../../dist/common/dto/index.js",
+  "types": "../../dist/common/dto/index.d.ts",
+  "scripts": {
+    "postinstall": "tsc",
+    "build": "tsc",
+    "build:watch": "tsc --watch"
+  },
+  "dependencies": {
+    "class-transformer": "^0.5.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}

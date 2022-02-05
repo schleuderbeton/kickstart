@@ -1,0 +1,25 @@
+{
+  "buttons": {
+    "add": "Hinzufügen",
+    "cancel": "Abbrechen",
+    "close": "Schliessen",
+    "download": "Herunterladen",
+    "edit": "Editieren",
+    "register": "Registrieren",
+    "submit": "Senden"
+  },
+  "general": {
+    "title": "Hallo Time-Tracking"
+  },
+  "m7": {
+    "title": "M7 - TiME TRaCKiNG"
+  },
+  "todo": {
+    "title": "NBS (NoBullShit) - todo app",
+    "table-title": "Todo"
+  },
+  "languages": {
+    "de": "DE",
+    "en": "EN"
+  }
+}
